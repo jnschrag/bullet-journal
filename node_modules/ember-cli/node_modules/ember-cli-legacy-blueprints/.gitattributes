@@ -1,0 +1,2 @@
+# force unix line endings on all files, needed for Windows npm publishing
+* text eol=lf
