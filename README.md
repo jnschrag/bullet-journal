@@ -4,18 +4,18 @@ A personal project to develop a digital version of the [bullet journal system](b
 ## Technologies Used
 
 ## Key Features of Bullet Journaling
-Features marked with * are required for vaiable product status.
+Features marked with * are required for viable product status.
 ### Rapid Logging/Daily Log:
-- [ ] Add Task*
-- [ ] Add Event*
-- [ ] Add Notes*
+- [x] Add Task*
+- [x] Add Event*
+- [x] Add Notes*
 - [ ] Automatic Header based on Date*
 - [ ] Option Descriptive Title
 - [ ] Automatic Page Number*
 - [ ] Mark Task Completed*
 - [ ] Mark Task Migrated
 - [ ] Mark Task Scheduled
-- [ ] Ability to add additional information to an event (simple textarea)
+- [x] Ability to add additional information to an event (simple textarea)
 - [ ] Designate tasks with priority, inspiration, explore markers*
 - [ ] Prompt users to complete/migrate old tasks from previous day
 
