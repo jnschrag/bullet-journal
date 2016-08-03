@@ -3,6 +3,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	notify: Ember.inject.service('notify'),
+	titleEmpty: Ember.computed('title', function() {
+		var title = this.get('title');
+	    return Ember.isEmpty(this.get('title'));
+	}),
 	sortProperties: ['timestamp'],
 	sortAscending: false, // sorts dailies by timestamp
 	actions: {
