@@ -12,11 +12,11 @@ Features marked with * are required for viable product status.
 - [ ] Automatic Header based on Date*
 - [ ] Option Descriptive Title
 - [ ] Automatic Page Number*
-- [ ] Mark Task Completed*
+- [x] Mark Task Completed*
 - [ ] Mark Task Migrated
 - [ ] Mark Task Scheduled
 - [x] Ability to add additional information to an event (simple textarea)
-- [ ] Designate tasks with priority, inspiration, explore markers*
+- [x] Designate tasks with priority, inspiration, explore markers*
 - [ ] Prompt users to complete/migrate old tasks from previous day
 
 ### The Index:
