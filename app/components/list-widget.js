@@ -18,6 +18,10 @@ export default Ember.Component.extend({
 
 	       todo.set('isEditing', false);
 	       todo.save();
+	    },
+	    toggleCompleted(todo) {
+	    	todo.toggleProperty('completed');
+	    	todo.save();
 	    }
 	}
 });

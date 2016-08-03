@@ -28,7 +28,6 @@ export default Ember.Controller.extend({
 		    this.set('title', '');
 		    this.set('type', 'task');
 		    this.set('additionalInfo', '');
-
 	    }
 	},
 	typeOptions: [

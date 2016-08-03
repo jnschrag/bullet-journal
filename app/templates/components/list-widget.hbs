@@ -1,6 +1,9 @@
 <ul>
 {{#each todos as |todo|}}
 	<li>
+	{{input type="checkbox"
+      checked=todo.completed
+      change=(action 'toggleCompleted' todo)}}
 	{{#if todo.isEditing}}
 		<form {{action 'saveTodo' todo on='submit'}} class="form-inline">
 		<div class="input-group">
