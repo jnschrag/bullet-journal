@@ -1,0 +1,19 @@
+<ul>
+{{#each todos as |todo|}}
+	<li>
+	{{#if todo.isEditing}}
+		<form {{action 'saveTodo' todo on='submit'}} class="form-inline">
+		<div class="input-group">
+		  {{input value=todo.title class="form-control"}}
+		  <div class="input-group-btn">
+		    <button type="submit" class="btn btn-success" disabled={{todo.isNotValid}}>Save</button>
+		    <button class="btn btn-danger" {{action 'cancelTodoEdit' todo}}>Cancel</button>
+		  </div>
+		</div>
+		</form>
+		{{else}}
+		<span {{action 'editTodo' todo}}>{{todo.title}}</span>
+	{{/if}}
+	: {{ todo.additionalInfo }}</li>
+{{/each}}
+</ul>

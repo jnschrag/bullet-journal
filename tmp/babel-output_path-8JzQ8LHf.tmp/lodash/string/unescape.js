@@ -1,0 +1,32 @@
+define('lodash/string/unescape', ['exports', 'lodash/internal/baseToString', 'lodash/internal/unescapeHtmlChar'], function (exports, _lodashInternalBaseToString, _lodashInternalUnescapeHtmlChar) {
+    'use strict';
+
+    /** Used to match HTML entities and HTML characters. */
+    var reEscapedHtml = /&(?:amp|lt|gt|quot|#39|#96);/g,
+        reHasEscapedHtml = RegExp(reEscapedHtml.source);
+
+    /**
+     * The inverse of `_.escape`; this method converts the HTML entities
+     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`, and `&#96;` in `string` to their
+     * corresponding characters.
+     *
+     * **Note:** No other HTML entities are unescaped. To unescape additional HTML
+     * entities use a third-party library like [_he_](https://mths.be/he).
+     *
+     * @static
+     * @memberOf _
+     * @category String
+     * @param {string} [string=''] The string to unescape.
+     * @returns {string} Returns the unescaped string.
+     * @example
+     *
+     * _.unescape('fred, barney, &amp; pebbles');
+     * // => 'fred, barney, & pebbles'
+     */
+    function unescape(string) {
+        string = (0, _lodashInternalBaseToString['default'])(string);
+        return string && reHasEscapedHtml.test(string) ? string.replace(reEscapedHtml, _lodashInternalUnescapeHtmlChar['default']) : string;
+    }
+
+    exports['default'] = unescape;
+});

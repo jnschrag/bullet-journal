@@ -1,0 +1,31 @@
+<h2>Daily Log</h2>
+
+<div class="form-inline">
+	<div class="form-group">
+		<label for="title">Task Name</label>
+		{{input value=title placeholder="Task Name" class="form-control"}}
+	</div>
+	<div class="form-group">
+		<select onchange={{action (mut type) value="target.value"}} class="form-control">  
+		  {{#each typeOptions as |type|}}
+		     <option value={{type.value}}>
+		        {{type.label}}
+		     </option>
+		  {{/each}}
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="additionalInfo">Additional Information</label>
+		{{textarea value=additionalInfo placeholder="" class="form-control"}}
+	</div>
+	{{#if title }}
+		<button {{action "publishDaily"}} class="btn btn-default">Add</button>
+	{{ else }}
+		<button class="btn btn-default" disabled>Add</button>
+	{{/if}}
+</div>
+    
+
+<section>
+{{list-widget todos=model}}
+</section>
