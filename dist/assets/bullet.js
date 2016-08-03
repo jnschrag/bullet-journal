@@ -897,7 +897,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("bullet/app")["default"].create({"name":"bullet","version":"0.0.0+28734cb8"});
+  require("bullet/app")["default"].create({"name":"bullet","version":"0.0.0+6de575b7"});
 }
 
 /* jshint ignore:end */
