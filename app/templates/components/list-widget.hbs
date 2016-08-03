@@ -1,22 +1,32 @@
 <ul>
 {{#each todos as |todo|}}
 	<li>
-	{{input type="checkbox"
-      checked=todo.completed
-      change=(action 'toggleCompleted' todo)}}
-	{{#if todo.isEditing}}
-		<form {{action 'saveTodo' todo on='submit'}} class="form-inline">
-		<div class="input-group">
-		  {{input value=todo.title class="form-control"}}
-		  <div class="input-group-btn">
-		    <button type="submit" class="btn btn-success" disabled={{todo.isNotValid}}>Save</button>
-		    <button class="btn btn-danger" {{action 'cancelTodoEdit' todo}}>Cancel</button>
-		  </div>
-		</div>
-		</form>
-		{{else}}
-		<span {{action 'editTodo' todo}}>{{todo.title}}</span>
-	{{/if}}
-	: {{ todo.additionalInfo }}</li>
+		{{input name="completed" type="checkbox"
+	      checked=todo.completed
+	      change=(action 'toggleCompleted' todo)}}
+		{{#if todo.isEditing}}
+			<form {{action 'saveTodo' todo on='submit'}} class="form-inline">
+			<div class="input-group">
+			  {{input value=todo.title class="form-control"}}
+			  <div class="input-group-btn">
+			    <button type="submit" class="btn btn-success" disabled={{todo.isNotValid}}>Save</button>
+			    <button class="btn btn-danger" {{action 'cancelTodoEdit' todo}}>Cancel</button>
+			  </div>
+			</div>
+			</form>
+			{{else}}
+			<span {{action 'editTodo' todo}}>{{todo.title}}</span>
+		{{/if}}
+		: {{ todo.additionalInfo }}
+		<button type="button" class="btn btn-default btn-xs {{if todo.priority "prioritizedTask"}}" aria-label="Priority" title="Prioritize" {{action 'markPriority' todo}}>
+		  <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default btn-xs {{if todo.explore "exploreTask"}}" aria-label="Explore" title="Explore" {{action 'markExplore' todo}}>
+		  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default btn-xs {{if todo.inspiration "inspirationTask"}}" aria-label="Inspiration" title="Inspiration" {{action 'markInspiration' todo}}>
+		  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+		</button>
+	</li>
 {{/each}}
 </ul>

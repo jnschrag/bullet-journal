@@ -22,6 +22,18 @@ export default Ember.Component.extend({
 	    toggleCompleted(todo) {
 	    	todo.toggleProperty('completed');
 	    	todo.save();
-	    }
+	    },
+	    markPriority(todo) {
+	    	todo.toggleProperty('priority');
+	    	todo.save();
+	    },
+	    markExplore(todo) {
+	    	todo.toggleProperty('explore');
+	    	todo.save();
+	    },
+	    markInspiration(todo) {
+	    	todo.toggleProperty('inspiration');
+	    	todo.save();
+	    },
 	}
 });
