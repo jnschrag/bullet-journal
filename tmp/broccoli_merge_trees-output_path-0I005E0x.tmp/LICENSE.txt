@@ -1,1 +1,0 @@
-/Users/jacqueschrag/Documents/jacqueschrag.com/bullet-journal/node_modules/ember-cli-qunit/node_modules/qunitjs/LICENSE.txt
