@@ -1,6 +1,6 @@
-<ul>
+<ul class="taskList">
 {{#each todos as |todo|}}
-	<li>
+	<li class="{{todo.type}} {{if todo.completed "completed"}}">
 		{{input name="completed" type="checkbox"
 	      checked=todo.completed
 	      change=(action 'toggleCompleted' todo)}}
@@ -17,19 +17,28 @@
 			{{else}}
 			<span {{action 'editTodo' todo}}>{{todo.title}}</span>
 		{{/if}}
-		: {{ todo.additionalInfo }}
-		<button type="button" class="btn btn-default btn-xs {{if todo.priority "prioritizedTask"}}" aria-label="Priority" title="Prioritize" {{action 'markPriority' todo}}>
-		  <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default btn-xs {{if todo.explore "exploreTask"}}" aria-label="Explore" title="Explore" {{action 'markExplore' todo}}>
-		  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default btn-xs {{if todo.inspiration "inspirationTask"}}" aria-label="Inspiration" title="Inspiration" {{action 'markInspiration' todo}}>
-		  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'deleteTodo' todo}}>
-		  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-		</button>
+		<div class="itemButtons">
+			<button type="button" class="btn btn-default btn-xs {{if todo.priority "prioritizedTask"}}" aria-label="Priority" title="Prioritize" {{action 'markPriority' todo}}>
+			  <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs {{if todo.explore "exploreTask"}}" aria-label="Explore" title="Explore" {{action 'markExplore' todo}}>
+			  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs {{if todo.inspiration "inspirationTask"}}" aria-label="Inspiration" title="Inspiration" {{action 'markInspiration' todo}}>
+			  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'viewMoreInfo' todo}}>
+			  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'deleteTodo' todo}}>
+			  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			</button>
+		</div>
+		{{#if todo.isInfoVisible}}
+			<div>
+				{{ todo.additionalInfo }}
+			</div>
+		{{/if}}
 	</li>
 {{/each}}
 </ul>

@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
 		    newDaily.save();
 		    this.get('notify').info('It worked. Fucking finally.');
 		    this.set('title', '');
-		    this.set('type', 'task');
+		    this.set('type', '');
 		    this.set('additionalInfo', '');
 	    }
 	},

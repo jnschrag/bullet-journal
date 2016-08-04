@@ -5,12 +5,10 @@ export default Ember.Component.extend({
 	    editTodo(todo) {
 	       todo.set('isEditing', true);
 	    },
-
 	    cancelTodoEdit(todo) {
 	       todo.set('isEditing', false);
 	       todo.rollbackAttributes();
 	    },
-
 	    saveTodo(todo) {
 	       if (todo.get('isNotValid')) {
 	         return;
@@ -38,5 +36,8 @@ export default Ember.Component.extend({
 	    	todo.toggleProperty('inspiration');
 	    	todo.save();
 	    },
+	    viewMoreInfo: function(todo){
+	        todo.toggleProperty('isInfoVisible');
+	    }
 	}
 });

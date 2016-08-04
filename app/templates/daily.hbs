@@ -1,12 +1,16 @@
-<h2>Daily Log</h2>
+<h2>Daily Log: {{moment-format date 'MMMM do YYYY'}}</h2>
 
-<div class="form-inline">
+<section>
+	{{list-widget todos=model}}
+</section>
+
+<form class="form-inline" {{action "publishDaily" on="submit"}}>
 	<div class="form-group">
-		<label for="title">Task Name</label>
-		{{input value=title placeholder="Task Name" class="form-control"}}
+		{{input value=title placeholder="type to add a new item..." class="form-control addTask"}}
 	</div>
 	<div class="form-group">
-		<select onchange={{action (mut type) value="target.value"}} class="form-control">  
+		<select onchange={{action (mut type) value="target.value"}} class="form-control">
+			<option value="">---</option>  
 		  {{#each typeOptions as |type|}}
 		     <option value={{type.value}}>
 		        {{type.label}}
@@ -18,12 +22,5 @@
 		<label for="additionalInfo">Additional Information</label>
 		{{textarea value=additionalInfo placeholder="" class="form-control"}}
 	</div>
-	<button {{action "publishDaily"}} class="btn btn-default" disabled={{titleEmpty}}>Add</button>
-</div>
-    
-
-<section>
-{{moment-calendar date}}<br />
-{{moment-format date 'MMMM do YYYY'}}<br />
-{{list-widget todos=model}}
-</section>
+	<button type="submit" class="btn btn-default" disabled={{titleEmpty}}>Add</button>
+</form>
