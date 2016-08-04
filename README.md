@@ -18,15 +18,18 @@ Features marked with * are required for viable product status.
 - [x] Ability to add additional information to an event (simple textarea)
 - [x] Designate tasks with priority, inspiration, explore markers*
 - [ ] Prompt users to complete/migrate old tasks from previous day
+- [ ] Delete items*
 
 ### The Index:
 - [ ] Add pages to collections*
 - [ ] Linkable pages*
+- [ ] Create collections
 
 ### The Future Log:
 - [ ] Add Months*
 - [ ] Add Events/Notes/Tasks to Future Log*
 - [ ] Import event/notes/tasks from daily log to Future Log
+- [ ] Delete items*
 
 ### The Monthly Log:
 - [ ] Add Month day's numbers and day of week*
@@ -34,8 +37,10 @@ Features marked with * are required for viable product status.
   - [ ] Specify Date
   - [ ] General Task (No Date)
 - [ ] Import event/notes/tasks from daily log to Monthly Log
+- [ ] Delete items*
 
 ### Monthly Habit Log
 - [ ] Add Month's days*
 - [ ] Add Habit*
 - [ ] Mark Habit completed per day*
+- [ ] Delete items*
