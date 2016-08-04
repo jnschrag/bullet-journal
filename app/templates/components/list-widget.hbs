@@ -27,6 +27,9 @@
 		<button type="button" class="btn btn-default btn-xs {{if todo.inspiration "inspirationTask"}}" aria-label="Inspiration" title="Inspiration" {{action 'markInspiration' todo}}>
 		  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
 		</button>
+		<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'deleteTodo' todo}}>
+		  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+		</button>
 	</li>
 {{/each}}
 </ul>

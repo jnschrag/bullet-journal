@@ -19,6 +19,9 @@ export default Ember.Component.extend({
 	       todo.set('isEditing', false);
 	       todo.save();
 	    },
+	    deleteTodo(todo) {
+	    	return todo.destroyRecord();
+	    },
 	    toggleCompleted(todo) {
 	    	todo.toggleProperty('completed');
 	    	todo.save();
