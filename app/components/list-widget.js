@@ -17,6 +17,19 @@ export default Ember.Component.extend({
 	       todo.set('isEditing', false);
 	       todo.save();
 	    },
+	    editTodoInfo(todo) {
+	       todo.set('isEditingInfo', true);
+	    },
+	    cancelTodoInfoEdit(todo) {
+	       todo.set('isEditingInfo', false);
+	       todo.rollbackAttributes();
+	    },
+	    saveTodoInfo(todo) {
+	    	console.log(todo.isEditingInfo);
+	       todo.set('isEditingInfo', false);
+	       todo.save();
+	       console.log(todo.isEditingInfo);
+	    },
 	    deleteTodo(todo) {
 	    	return todo.destroyRecord();
 	    },
@@ -34,6 +47,10 @@ export default Ember.Component.extend({
 	    },
 	    markInspiration(todo) {
 	    	todo.toggleProperty('inspiration');
+	    	todo.save();
+	    },
+	    markType(todo, typeOption) {
+	    	todo.set('type', typeOption);
 	    	todo.save();
 	    },
 	    viewMoreInfo: function(todo){

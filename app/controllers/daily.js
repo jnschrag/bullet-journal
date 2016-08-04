@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
 		        title: this.get('title'),
 		        additionalInfo: this.get('additionalInfo'),
 		        timestamp: new Date().getTime(),
-		        type: this.get('type'),
+		        type: 'task',
 		        priority: this.get('priority'),
 		        inspiration: this.get('inspiration'),
 		        explore: this.get('explore'),
@@ -29,19 +29,5 @@ export default Ember.Controller.extend({
 		    this.set('type', '');
 		    this.set('additionalInfo', '');
 	    }
-	},
-	typeOptions: [
-        {
-            value: "task",
-            label: "Task"
-        },
-        {
-            value: "event",
-            label: "Event"
-        },
-        {
-            value: "note",
-            label: "Note"
-        }
-    ]
+	}
 });

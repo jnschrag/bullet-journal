@@ -1,6 +1,20 @@
 <ul class="taskList">
 {{#each todos as |todo|}}
 	<li class="{{todo.type}} {{if todo.completed "completed"}}">
+		<!-- START: Special Markers -->
+		{{#if todo.priority}}
+			<a href="" {{action 'markPriority' todo}} title="Priority"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a>
+		{{/if}}
+		{{#if todo.explore}}
+			<a href="" {{action 'markExplore' todo}} title="Explore"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+		{{/if}}
+		{{#if todo.inspiration}}
+			<a href="" {{action 'markInspiration' todo}} title="Inspiration"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+		{{/if}}
+		<!-- END: Special Markers -->
+		
+
+
 		{{input name="completed" type="checkbox"
 	      checked=todo.completed
 	      change=(action 'toggleCompleted' todo)}}
@@ -18,26 +32,43 @@
 			<span {{action 'editTodo' todo}}>{{todo.title}}</span>
 		{{/if}}
 		<div class="itemButtons">
-			<button type="button" class="btn btn-default btn-xs {{if todo.priority "prioritizedTask"}}" aria-label="Priority" title="Prioritize" {{action 'markPriority' todo}}>
-			  <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-			</button>
-			<button type="button" class="btn btn-default btn-xs {{if todo.explore "exploreTask"}}" aria-label="Explore" title="Explore" {{action 'markExplore' todo}}>
-			  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-			</button>
-			<button type="button" class="btn btn-default btn-xs {{if todo.inspiration "inspirationTask"}}" aria-label="Inspiration" title="Inspiration" {{action 'markInspiration' todo}}>
-			  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-			</button>
-			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'viewMoreInfo' todo}}>
+			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="View More Info" {{action 'viewMoreInfo' todo}}>
 			  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 			</button>
+			<div class="btn-group taskActions">
+			  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="More Actions">
+			    <span class="glyphicon glyphicon-menu-hamburger"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="" {{action 'markPriority' todo}} class="{{if todo.priority "actionActivated"}}">Prioritize</a></li>
+			    <li><a href="" {{action 'markExplore' todo}} class="{{if todo.explore "actionActivated"}}">Explore</a></li>
+			    <li><a href="" {{action 'markInspiration' todo}} class="{{if todo.inspiration "actionActivated"}}">Inspiration</a></li>
+			    <li role="separator" class="divider"></li>
+			    <li><a href="" {{action 'markType' todo 'task'}} class="{{task-type-formatter todo.type "task"}}">Task</a></li>
+			    <li><a href="" {{action 'markType' todo 'event'}} class="{{task-type-formatter todo.type "event"}}">Event</a></li>
+			    <li><a href="" {{action 'markType' todo 'note'}} class="{{task-type-formatter todo.type "note"}}">Note</a></li>
+			  </ul>
+			</div>
 			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'deleteTodo' todo}}>
 			  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 			</button>
 		</div>
 		{{#if todo.isInfoVisible}}
-			<div>
-				{{ todo.additionalInfo }}
-			</div>
+			<blockquote class="additionalInfo {{unless todo.additionalInfo "placeholderText" }}">
+				{{#if todo.isEditingInfo}}
+					<form {{action 'saveTodoInfo' todo on='submit'}} class="form-inline">
+						<div class="input-group">
+						  {{textarea value=todo.additionalInfo placeholder="" class="form-control"}}
+						  <div class="input-group-btn">
+						    <button type="submit" class="btn btn-success">Save</button>
+						    <button class="btn btn-danger" {{action 'cancelTodoInfoEdit' todo}}>Cancel</button>
+						  </div>
+						</div>
+					</form>
+				{{else}}
+					<div {{action 'editTodoInfo' todo}}>{{{if todo.additionalInfo todo.additionalInfo "Click here to add additional information about this item" }}}</div>
+				{{/if}}
+			</blockquote>
 		{{/if}}
 	</li>
 {{/each}}

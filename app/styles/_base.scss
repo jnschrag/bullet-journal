@@ -8,17 +8,23 @@ body {
 	text-align:center;
 }
 
+.placeholderText {
+	font-style: italic;
+	color: $gray;
+}
+
 input.addTask {
 	font-size:2em;
 	border:0px;
-	border-bottom:1px solid #eee;
+	border-bottom:1px solid $light-gray;
 	box-shadow:none;
+	border-radius:0px;
 
 	&:focus {
 		outline: none;
 		box-shadow:none;
-		border-bottom:1px solid #000;
-		color:#000;
+		border-bottom:1px solid $black;
+		color: $black;
 	}
 }
 
@@ -29,7 +35,7 @@ ul.taskList {
 	list-style-type:none;
 
 	li {
-		border-bottom:1px solid #eee;
+		border-bottom:1px solid $light-gray;
 		margin-bottom:15px;
 		padding:10px;
 
@@ -62,6 +68,26 @@ ul.taskList {
 
 		.itemButtons {
 			float:right;
+			display:inline-block;
+		}
+
+		.taskActions li {
+			padding:0px;
+			margin:0px;
+
+			a.actionActivated:before {
+				font-family: 'Glyphicons Halflings';
+				content: "\e013";
+				margin-right:10px;
+			}
+		}
+
+		blockquote.additionalInfo {
+			margin-top: 10px;
+    		font-size: 0.8em;
+		}
+
+		form.form-inline {
 			display:inline-block;
 		}
 	}
