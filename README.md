@@ -9,9 +9,7 @@ Features marked with * are required for viable product status.
 - [x] Add Task*
 - [x] Add Event*
 - [x] Add Notes*
-- [ ] Automatic Header based on Date*
-- [ ] Option Descriptive Title
-- [ ] Automatic Page Number*
+- [x] Automatic Header based on Date*
 - [x] Mark Task Completed*
 - [ ] Mark Task Migrated
 - [ ] Mark Task Scheduled
@@ -19,10 +17,12 @@ Features marked with * are required for viable product status.
 - [x] Designate tasks with priority, inspiration, explore markers*
 - [ ] Prompt users to complete/migrate old tasks from previous day
 - [x] Delete items*
+- [ ] Add items to collections*
+- [ ] Refactor list-widget view into smaller components
 
 ### The Index:
-- [ ] Add pages to collections*
-- [ ] Linkable pages*
+- [ ] Display items grouped by collection; items are indicated by title and date
+- [ ] Make index linkable
 - [ ] Create collections
 
 ### The Future Log:
