@@ -47,6 +47,8 @@
 			    <li><a href="" {{action 'markType' todo 'task'}} class="{{task-type-formatter todo.type "task"}}">Task</a></li>
 			    <li><a href="" {{action 'markType' todo 'event'}} class="{{task-type-formatter todo.type "event"}}">Event</a></li>
 			    <li><a href="" {{action 'markType' todo 'note'}} class="{{task-type-formatter todo.type "note"}}">Note</a></li>
+			    <li class="datepickerAction">Migrate: {{pikaday-input}}</li>
+			    <li class="datepickerAction">Schedule: {{pikaday-input}}</li>
 			  </ul>
 			</div>
 			<button type="button" class="btn btn-default btn-xs" aria-label="Delete" title="Delete" {{action 'deleteTodo' todo}}>

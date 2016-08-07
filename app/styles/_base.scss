@@ -8,6 +8,10 @@ body {
 	text-align:center;
 }
 
+.dropdown-menu > li > a {
+	padding:3px 10px;
+}
+
 .placeholderText {
 	font-style: italic;
 	color: $gray;
@@ -80,6 +84,16 @@ ul.taskList {
 				content: "\e013";
 				margin-right:10px;
 			}
+
+			&.datepickerAction {
+				padding: 3px 10px;
+
+				input {
+					display: inline;
+    				width: 50%;
+				}
+			}
+
 		}
 
 		blockquote.additionalInfo {
