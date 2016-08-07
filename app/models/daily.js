@@ -10,5 +10,7 @@ export default DS.Model.extend({
   explore: DS.attr('boolean', { defaultValue: false }),
   completed: DS.attr('boolean', { defaultValue: false }),
   migrated: DS.attr('boolean', { defaultValue: false }),
-  scheduled: DS.attr('boolean', { defaultValue: false })
+  scheduled: DS.attr('boolean', { defaultValue: false }),
+  migrateDate: DS.attr('number'),
+  scheduleDate: DS.attr('number')
 });

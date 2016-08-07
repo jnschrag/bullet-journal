@@ -55,6 +55,16 @@ export default Ember.Component.extend({
 	    },
 	    viewMoreInfo: function(todo){
 	        todo.toggleProperty('isInfoVisible');
-	    }
+	    },
+	    migrateTask(todo,value) {
+	    	var d = new Date(value);
+	    	todo.set('migrateDate', d.getTime());
+	    	todo.save();
+	    },
+	    scheduleTask(todo,value) {
+	    	var d = new Date(value);
+	    	todo.set('scheduleDate', d.getTime());
+	    	todo.save();
+	    },
 	}
 });
