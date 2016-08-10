@@ -28,7 +28,6 @@ export default Ember.Component.extend({
 	    	console.log(todo.isEditingInfo);
 	       todo.set('isEditingInfo', false);
 	       todo.save();
-	       console.log(todo.isEditingInfo);
 	    },
 	    deleteTodo(todo) {
 	    	return todo.destroyRecord();
@@ -60,10 +59,15 @@ export default Ember.Component.extend({
 	    	var d = new Date(value);
 	    	todo.set('migrateDate', d.getTime());
 	    	todo.save();
+	    	console.log(d.getTime());
 	    },
 	    scheduleTask(todo,value) {
 	    	var d = new Date(value);
 	    	todo.set('scheduleDate', d.getTime());
+	    	todo.save();
+	    },
+	    toggleDatePicker(todo, value) {
+	    	todo.toggleProperty(value);
 	    	todo.save();
 	    },
 	}
