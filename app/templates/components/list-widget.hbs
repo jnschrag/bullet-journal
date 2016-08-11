@@ -51,12 +51,14 @@
 			    		<a href="" {{action 'toggleDatePicker' todo 'migrateDateVisibility'}}> Migrate: {{moment-format todo.migrateDate 'MMMM Do YYYY' allow-empty=true}}</a>
 			    		{{#if todo.migrateDateVisibility}}
 				    		{{pikaday-inputless format="MM/DD/YYYY" onSelection=(action 'migrateTask' todo)}}
+				    		<a href="" {{action 'clearDatePicker' todo 'migrateDate' 'migrateDateVisibility'}}>Clear Migrate Date</a>
 				    	{{/if}}
 			    </li>
 			    <li class="datepickerAction">
 			    	<a href="" {{action 'toggleDatePicker' todo 'scheduleDateVisibility'}}> Schedule: {{moment-format todo.scheduleDate 'MMMM Do YYYY' allow-empty=true}}</a>
 		    		{{#if todo.scheduleDateVisibility}}
 			    		{{pikaday-inputless format="MM/DD/YYYY" onSelection=(action 'scheduleTask' todo)}}
+			    		<a href="" {{action 'clearDatePicker' todo 'scheduleDate' 'scheduleDateVisibility'}}>Clear Schedule Date</a>
 			    	{{/if}}
 			    </li>
 			  </ul>
