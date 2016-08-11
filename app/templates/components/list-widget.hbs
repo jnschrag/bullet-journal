@@ -11,6 +11,12 @@
 		{{#if todo.inspiration}}
 			<a href="" {{action 'markInspiration' todo}} title="Inspiration"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
 		{{/if}}
+		{{#if todo.migrated}}
+			<a href="" {{action 'clearDatePicker' todo 'migrateDate' 'migrateDateVisibility'}} title="Migrated Task"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+		{{/if}}
+		{{#if todo.scheduled}}
+			<a href="" {{action 'clearDatePicker' todo 'scheduleDate' 'scheduleDateVisibility'}} title="Scheduled Task"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+		{{/if}}
 		<!-- END: Special Markers -->
 		
 

@@ -14,8 +14,8 @@ Features marked with * are required for viable product status.
 - [x] Add Notes*
 - [x] Automatic Header based on Date*
 - [x] Mark Task Completed*
-- [ ] Mark Task Migrated
-- [ ] Mark Task Scheduled
+- [x] Mark Task Migrated
+- [x] Mark Task Scheduled
 - [x] Ability to add additional information to an event (simple textarea)
 - [x] Designate tasks with priority, inspiration, explore markers*
 - [ ] Prompt users to complete/migrate old tasks from previous day
