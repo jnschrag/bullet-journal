@@ -58,11 +58,13 @@ export default Ember.Component.extend({
 	    migrateTask(todo,value) {
 	    	var d = new Date(value);
 	    	todo.set('migrateDate', d.getTime());
+	    	todo.set('migrated', true);
 	    	todo.save();
 	    },
 	    scheduleTask(todo,value) {
 	    	var d = new Date(value);
 	    	todo.set('scheduleDate', d.getTime());
+	    	todo.set('scheduled', true);
 	    	todo.save();
 	    },
 	    toggleDatePicker(todo, value) {
@@ -71,6 +73,12 @@ export default Ember.Component.extend({
 	    },
 	    clearDatePicker(todo, propertyValue, toggleValue) {
 	    	todo.set(propertyValue, '');
+	    	if(propertyValue == "migrateDate") {
+	    		todo.set('migrated', false);	
+	    	}
+	    	if(propertyValue == "scheduleDate") {
+	    		todo.set('scheduled', false);	
+	    	}
 	    	todo.toggleProperty(toggleValue);
 	    	todo.save();
 	    	
