@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('daily');
+  this.route('categories');
 });
 
 export default Router;
