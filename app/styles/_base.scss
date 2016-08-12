@@ -64,10 +64,18 @@ ul.taskList {
 
 		&.completed {
 			&:before {
-				content: "\e013";
+				content: "\e013" !important;
 			}
 			color:gray;
 			font-style:italic;
+		}
+
+		&.migrated:before {
+			content: "\e080";
+		}
+
+		&.scheduled:before {
+			content: "\e079";
 		}
 
 		.itemButtons {

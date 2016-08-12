@@ -1,6 +1,6 @@
 <ul class="taskList">
 {{#each todos as |todo|}}
-	<li class="{{todo.type}} {{if todo.completed "completed"}}">
+	<li class="{{todo.type}} {{if todo.migrated "migrated"}} {{if todo.scheduled "scheduled"}} {{if todo.completed "completed"}}">
 		<!-- START: Special Markers -->
 		{{#if todo.priority}}
 			<a href="" {{action 'markPriority' todo}} title="Priority"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a>
@@ -10,12 +10,6 @@
 		{{/if}}
 		{{#if todo.inspiration}}
 			<a href="" {{action 'markInspiration' todo}} title="Inspiration"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-		{{/if}}
-		{{#if todo.migrated}}
-			<a href="" {{action 'clearDatePicker' todo 'migrateDate' 'migrateDateVisibility'}} title="Migrated Task"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
-		{{/if}}
-		{{#if todo.scheduled}}
-			<a href="" {{action 'clearDatePicker' todo 'scheduleDate' 'scheduleDateVisibility'}} title="Scheduled Task"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 		{{/if}}
 		<!-- END: Special Markers -->
 		
